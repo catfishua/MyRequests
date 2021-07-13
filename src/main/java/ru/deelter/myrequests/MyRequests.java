@@ -1,5 +1,6 @@
 package ru.deelter.myrequests;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.deelter.myrequests.commands.Request;
 import ru.deelter.myrequests.utils.MyRequest;
@@ -15,6 +16,16 @@ public final class MyRequests extends JavaPlugin {
         return instance;
     }
 
+    String[] LOGO =
+            new String[]{
+                    "§6 __  __       ____                            _",
+                    "§6|  \\/  |_   _|  _ \\ ___  __ _ _   _  ___  ___| |_",
+                    "§6| |\\/| | | | | |_) / _ \\/ _` | | | |/ _ \\/ __| __|",
+                    "§6| |  | | |_| |  _ <  __/ (_| | |_| |  __/\\__ \\ |_ ",
+                    "§6|_|  |_|\\__, |_| \\_\\___|\\__, |\\__,_|\\___||___/\\__|",
+                    "§6        |___/              |_|"
+            };
+
     @Override
     public void onEnable() {
         instance = this;
@@ -29,13 +40,12 @@ public final class MyRequests extends JavaPlugin {
         getCommand("myrequest").setExecutor(new Request());
 
         /* Final console icon */
-        Other.log("\n" +
-                "&8######################################### \n" +
-                "&6█▄&f░&6▄█ ▀▄&f░&6▄▀ █▀▀▄ █▀▀ ▄▀█ █&f░&6█ █▀▀ ▄▀▀ ▀█▀ \n" +
-                "&6█&f░&6█&f░&6█ &f░░&6█&f░░&6 █▐█▀ █▀▀ █&f░&6█ █&f░&6█ █▀▀ &f░&6▀▄ &f░&6█&f░ \n" +
-                "&6▀&f░░░&6▀ &f░░&6▀&f░░ &6▀&f░&6▀▀ ▀▀▀ &f░&6▀█ &f░&6▀&f░ &6▀▀▀ ▀▀&f░ ░&6▀&f░ \n" +
-                "&8            &fBY DEELTER\n" +
-                "&8#########################################");
+        for (String str : LOGO) {
+            Bukkit.getLogger().info(str);
+        }
+        Bukkit.getLogger().info("");
+        Bukkit.getLogger().info("BY DEELTER");
+        Bukkit.getLogger().info("");
     }
 
     @Override
